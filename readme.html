@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dokumentasi lengkap belajar HTML dan CSS untuk pemula, disusun dalam tujuh pembelajaran dengan contoh dan latihan."
+    />
+    <title>Dokumentasi Belajar Web Pemula | HTML &amp; CSS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #202923;
+        --muted: #5e6b62;
+        --paper: #f6f7f3;
+        --surface: #fff;
+        --line: #dfe5de;
+        --green: #285b43;
+        --green-deep: #183b2b;
+        --green-soft: #e9f1e8;
+        --coral: #c85c43;
+        --coral-soft: #fff0ea;
+        --blue: #416a92;
+        --blue-soft: #edf3f8;
+        --display: "Newsreader", Georgia, serif;
+        --body: "DM Sans", "Segoe UI", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 88px;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      a {
+        color: var(--green);
+      }
+
+      a:focus-visible {
+        outline: 3px solid var(--coral);
+        outline-offset: 4px;
+      }
+
+      .topbar {
+        position: sticky;
+        z-index: 5;
+        top: 0;
+        display: flex;
+        min-height: 66px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 max(28px, calc((100vw - 1240px) / 2));
+        border-bottom: 1px solid var(--line);
+        background: rgb(255 255 255 / 96%);
+        backdrop-filter: blur(12px);
+      }
+
+      .brand {
+        display: inline-flex;
+        gap: 11px;
+        align-items: center;
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .brand-mark {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--green);
+        color: #fff;
+        font-family: Georgia, serif;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .topbar-links {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .topbar-links a {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .topbar-links a:hover {
+        color: var(--green);
+      }
+
+      .doc-hero {
+        position: relative;
+        overflow: hidden;
+        background: var(--green-deep);
+        color: #fff;
+      }
+
+      .doc-hero::after {
+        position: absolute;
+        top: -160px;
+        right: max(3vw, calc((100vw - 1240px) / 2));
+        width: 390px;
+        height: 390px;
+        border: 1px solid rgb(201 236 174 / 26%);
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 36px rgb(201 236 174 / 5%),
+          0 0 0 72px rgb(201 236 174 / 4%);
+        content: "";
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        width: min(1120px, calc(100% - 48px));
+        min-height: 260px;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 50px;
+        align-items: center;
+        margin: 0 auto;
+        padding: 36px 0;
+      }
+
+      .hero-copy {
+        max-width: 700px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        gap: 9px;
+        align-items: center;
+        margin: 0 0 13px;
+        color: #c9eca9;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+      }
+
+      .eyebrow::before {
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        content: "";
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin-bottom: 12px;
+        font-family: var(--display);
+        font-size: clamp(36px, 5vw, 55px);
+        font-weight: 500;
+      }
+
+      .hero-copy > p:last-child {
+        max-width: 690px;
+        margin-bottom: 0;
+        color: rgb(255 255 255 / 78%);
+      }
+
+      .hero-photo {
+        width: 300px;
+        height: 176px;
+        border: 1px solid rgb(255 255 255 / 35%);
+        border-radius: 4px;
+        object-fit: cover;
+        object-position: center 54%;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-top: 18px;
+        color: rgb(255 255 255 / 74%);
+        font-size: 12px;
+      }
+
+      .meta-dot {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #c9eca9;
+      }
+
+      .page-layout {
+        display: grid;
+        width: min(1120px, calc(100% - 48px));
+        grid-template-columns: 224px minmax(0, 1fr);
+        gap: 64px;
+        align-items: start;
+        margin: 0 auto;
+        padding: 46px 0 90px;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 90px;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding: 8px 0 16px;
+      }
+
+      .sidebar-title {
+        margin: 0 0 13px 12px;
+        color: #78847a;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+      }
+
+      .toc {
+        display: grid;
+        gap: 3px;
+      }
+
+      .toc a {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 8px;
+        align-items: start;
+        padding: 8px 11px;
+        border-left: 2px solid transparent;
+        border-radius: 0 3px 3px 0;
+        color: #536057;
+        font-size: 12px;
+        line-height: 1.45;
+        text-decoration: none;
+      }
+
+      .toc a:hover,
+      .toc a:focus-visible {
+        border-left-color: var(--green);
+        background: #eaf0e8;
+        color: var(--green-deep);
+      }
+
+      .toc-number {
+        color: #89958b;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .toc-extra {
+        margin-top: 20px;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--surface);
+      }
+
+      .toc-extra strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+      }
+
+      .toc-extra p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.55;
+      }
+
+      .document {
+        min-width: 0;
+      }
+
+      .chapter {
+        padding: 0 0 54px;
+        scroll-margin-top: 94px;
+      }
+
+      .chapter + .chapter {
+        padding-top: 44px;
+        border-top: 1px solid var(--line);
+      }
+
+      .chapter-heading {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 14px;
+        align-items: start;
+        margin-bottom: 24px;
+      }
+
+      .chapter-number {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border: 1px solid #c9d7c9;
+        border-radius: 50%;
+        background: var(--green-soft);
+        color: var(--green);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .chapter-heading h2 {
+        margin: 1px 0 8px;
+        font-family: var(--display);
+        font-size: clamp(29px, 3vw, 39px);
+        font-weight: 500;
+      }
+
+      .chapter-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .document h3 {
+        margin: 29px 0 10px;
+        font-family: var(--display);
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .document p {
+        margin-bottom: 15px;
+      }
+
+      .document ul,
+      .document ol {
+        padding-left: 22px;
+      }
+
+      .document li {
+        padding-left: 3px;
+        margin: 5px 0;
+      }
+
+      .document li::marker {
+        color: var(--green);
+      }
+
+      code,
+      pre {
+        font-family: Consolas, "Courier New", monospace;
+      }
+
+      :not(pre) > code {
+        padding: 2px 5px;
+        border: 1px solid #e1e7df;
+        border-radius: 3px;
+        background: #f1f4ef;
+        color: #35483c;
+        font-size: 0.88em;
+      }
+
+      .code-label {
+        display: flex;
+        justify-content: space-between;
+        padding: 9px 14px;
+        border: 1px solid #2e4538;
+        border-bottom: 0;
+        border-radius: 4px 4px 0 0;
+        background: #24382c;
+        color: #d7e4d7;
+        font-family: var(--body);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      pre {
+        overflow-x: auto;
+        margin: 0 0 22px;
+        padding: 17px 18px;
+        border: 1px solid #2e4538;
+        border-radius: 0 0 4px 4px;
+        background: #17251c;
+        color: #e4ece3;
+        font-size: 12px;
+        line-height: 1.75;
+        tab-size: 2;
+      }
+
+      .code-label + pre {
+        border-top: 0;
+      }
+
+      .concept-list {
+        display: grid;
+        gap: 9px;
+        margin: 15px 0 22px;
+      }
+
+      .concept {
+        display: grid;
+        grid-template-columns: minmax(110px, 170px) minmax(0, 1fr);
+        gap: 16px;
+        padding: 12px 14px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--surface);
+      }
+
+      .concept code,
+      .concept strong {
+        align-self: start;
+        color: var(--green);
+        font-size: 13px;
+      }
+
+      .concept p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .note {
+        margin: 22px 0;
+        padding: 14px 17px;
+        border-left: 3px solid var(--blue);
+        border-radius: 0 4px 4px 0;
+        background: var(--blue-soft);
+      }
+
+      .note strong {
+        display: block;
+        margin-bottom: 3px;
+        color: #345875;
+        font-size: 12px;
+      }
+
+      .note p {
+        margin: 0;
+        color: #465a6b;
+        font-size: 13px;
+      }
+
+      .exercise {
+        margin-top: 26px;
+        padding: 19px 21px;
+        border: 1px solid #ead3c9;
+        border-radius: 4px;
+        background: var(--coral-soft);
+      }
+
+      .exercise-label {
+        display: flex;
+        gap: 9px;
+        align-items: center;
+        margin-bottom: 7px;
+        color: #994b37;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+
+      .exercise-label span {
+        display: grid;
+        width: 22px;
+        height: 22px;
+        place-items: center;
+        border-radius: 50%;
+        background: #f5d8ce;
+        font-size: 11px;
+      }
+
+      .exercise p {
+        margin: 0;
+        color: #584840;
+        font-size: 14px;
+      }
+
+      .box-model {
+        display: grid;
+        max-width: 470px;
+        min-height: 210px;
+        place-items: center;
+        margin: 22px auto;
+        padding: 20px;
+        border: 2px dashed #c7a66e;
+        background: #f7f0df;
+        color: #54442a;
+        text-align: center;
+      }
+
+      .box-model-border {
+        width: 100%;
+        padding: 17px;
+        border: 2px solid #cf8060;
+        background: #fbe9df;
+      }
+
+      .box-model-padding {
+        padding: 20px;
+        border: 1px solid #d6bb77;
+        background: #fff9e9;
+      }
+
+      .box-model-content {
+        padding: 10px;
+        background: #dcebd9;
+        color: #285b43;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .diagram-wrap {
+        overflow-x: auto;
+        margin: 22px 0;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--surface);
+      }
+
+      .layout-diagram {
+        display: grid;
+        min-width: 420px;
+        grid-template-columns: 1fr 1.7fr;
+        color: var(--green-deep);
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .layout-diagram div {
+        display: grid;
+        min-height: 55px;
+        place-items: center;
+        border: 1px solid #afc5b1;
+        background: #edf4eb;
+      }
+
+      .layout-diagram .wide {
+        grid-column: 1 / -1;
+        min-height: 43px;
+        background: #e4eee1;
+      }
+
+      .project-list {
+        display: grid;
+        gap: 12px;
+        margin: 19px 0 25px;
+        padding: 0;
+        list-style: none;
+        counter-reset: project;
+      }
+
+      .project-list li {
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 11px;
+        align-items: start;
+        margin: 0;
+        padding: 13px 15px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--surface);
+        counter-increment: project;
+      }
+
+      .project-list li::before {
+        display: grid;
+        width: 28px;
+        height: 28px;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--green-soft);
+        color: var(--green);
+        content: "0" counter(project);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .project-list strong {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 14px;
+      }
+
+      .project-list span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .workflow {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin: 18px 0 24px;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background: var(--surface);
+      }
+
+      .workflow span {
+        color: var(--green-deep);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .workflow b {
+        color: #9aa69b;
+        font-size: 13px;
+      }
+
+      .finish-banner {
+        margin-top: 26px;
+        padding: 21px;
+        border-radius: 4px;
+        background: var(--green-deep);
+        color: #fff;
+      }
+
+      .finish-banner strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #c9eca9;
+        font-family: var(--display);
+        font-size: 24px;
+        font-weight: 500;
+      }
+
+      .finish-banner p {
+        margin: 0;
+        color: rgb(255 255 255 / 83%);
+        font-size: 14px;
+      }
+
+      .doc-footer {
+        padding: 24px;
+        border-top: 1px solid var(--line);
+        background: #fff;
+        color: var(--muted);
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .doc-footer a {
+        margin-left: 8px;
+        color: var(--green);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .hero-inner {
+          grid-template-columns: minmax(0, 1fr) 240px;
+          gap: 28px;
+        }
+
+        .hero-photo {
+          width: 240px;
+          height: 150px;
+        }
+
+        .page-layout {
+          grid-template-columns: 190px minmax(0, 1fr);
+          gap: 34px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .topbar {
+          min-height: 60px;
+          padding: 0 18px;
+        }
+
+        .topbar-links {
+          gap: 13px;
+        }
+
+        .topbar-links a {
+          font-size: 11px;
+        }
+
+        .topbar-links a:first-child {
+          display: none;
+        }
+
+        .hero-inner {
+          width: min(100% - 36px, 560px);
+          min-height: 0;
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 36px 0 28px;
+        }
+
+        .hero-photo {
+          width: 100%;
+          height: 150px;
+          object-position: center 53%;
+        }
+
+        .hero-meta {
+          flex-wrap: wrap;
+        }
+
+        .page-layout {
+          display: block;
+          width: min(100% - 36px, 650px);
+          padding: 24px 0 60px;
+        }
+
+        .sidebar {
+          position: static;
+          max-height: none;
+          margin: 0 0 32px;
+          padding: 0 0 12px;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .sidebar-title {
+          margin-left: 0;
+        }
+
+        .toc {
+          display: flex;
+          gap: 6px;
+          overflow-x: auto;
+          padding-bottom: 4px;
+          scrollbar-width: thin;
+        }
+
+        .toc a {
+          flex: 0 0 auto;
+          grid-template-columns: auto auto;
+          align-items: center;
+          padding: 8px 10px;
+          border: 1px solid var(--line);
+          border-radius: 3px;
+          background: #fff;
+          white-space: nowrap;
+        }
+
+        .toc a:hover,
+        .toc a:focus-visible {
+          border-color: #a8bea9;
+        }
+
+        .toc-extra {
+          display: none;
+        }
+
+        .chapter {
+          padding-bottom: 42px;
+        }
+
+        .chapter + .chapter {
+          padding-top: 35px;
+        }
+      }
+
+      @media (max-width: 440px) {
+        body {
+          font-size: 14px;
+        }
+
+        .brand {
+          gap: 8px;
+          font-size: 12px;
+        }
+
+        .brand-mark {
+          width: 30px;
+          height: 30px;
+        }
+
+        .topbar-links {
+          gap: 10px;
+        }
+
+        .hero-inner,
+        .page-layout {
+          width: min(100% - 30px, 650px);
+        }
+
+        .hero-inner {
+          padding-top: 29px;
+        }
+
+        .hero-photo {
+          height: 130px;
+        }
+
+        .chapter-heading {
+          grid-template-columns: 36px minmax(0, 1fr);
+          gap: 11px;
+        }
+
+        .chapter-number {
+          width: 34px;
+          height: 34px;
+          font-size: 11px;
+        }
+
+        .chapter-heading h2 {
+          font-size: 29px;
+        }
+
+        .concept {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        pre {
+          padding: 14px;
+          font-size: 11px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+        Dokumentasi Web Pemula
+      </a>
+      <nav class="topbar-links" aria-label="Navigasi atas">
+        <a href="#daftar-isi">Daftar isi</a>
+        <a href="readme.md">Buka versi Markdown</a>
+        <a href="index.html">Beranda</a>
+      </nav>
+    </header>
+
+    <section class="doc-hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Panduan belajar mandiri · 7 pembelajaran</p>
+          <h1 id="page-title">Buku Pintar Web Developer Pemula</h1>
+          <p>
+            Menguasai HTML dan CSS tanpa pusing. Mulai dari kerangka halaman,
+            lanjutkan ke desain, tata letak, dan proyek pertamamu.
+          </p>
+          <div class="hero-meta">
+            <span>HTML sebagai struktur</span>
+            <span class="meta-dot" aria-hidden="true"></span>
+            <span>CSS sebagai desain</span>
+          </div>
+        </div>
+        <img
+          class="hero-photo"
+          src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+          alt="Laptop dan meja kerja untuk belajar membuat website"
+        />
+      </div>
+    </section>
+
+    <main class="page-layout">
+      <aside
+        class="sidebar"
+        id="daftar-isi"
+        aria-label="Daftar isi dokumentasi"
+      >
+        <p class="sidebar-title">Di dalam panduan</p>
+        <nav class="toc" aria-label="Daftar bab">
+          <a href="#pembelajaran-1"
+            ><span class="toc-number">01</span><span>HTML Fundamental</span></a
+          >
+          <a href="#pembelajaran-2"
+            ><span class="toc-number">02</span><span>Semantic HTML</span></a
+          >
+          <a href="#pembelajaran-3"
+            ><span class="toc-number">03</span><span>CSS Fundamental</span></a
+          >
+          <a href="#pembelajaran-4"
+            ><span class="toc-number">04</span><span>CSS Box Model</span></a
+          >
+          <a href="#pembelajaran-5"
+            ><span class="toc-number">05</span><span>Float &amp; Clear</span></a
+          >
+          <a href="#pembelajaran-6"
+            ><span class="toc-number">06</span
+            ><span>Responsive Design &amp; UI</span></a
+          >
+          <a href="#pembelajaran-7"
+            ><span class="toc-number">07</span
+            ><span>Practice &amp; Portfolio</span></a
+          >
+        </nav>
+        <div class="toc-extra">
+          <strong>Mulai dari dasar</strong>
+          <p>
+            Ikuti bab secara berurutan. Setiap pembelajaran diakhiri dengan
+            latihan praktik.
+          </p>
+        </div>
+      </aside>
+
+      <article class="document">
+        <section class="chapter" id="pembelajaran-1" aria-labelledby="title-1">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">01</span>
+            <div>
+              <h2 id="title-1">HTML Fundamental</h2>
+              <p>Membangun kerangka halaman web dari elemen-elemen dasar.</p>
+            </div>
+          </header>
+
+          <p>
+            Bayangkan Anda sedang membangun rumah. HTML (<em
+              >HyperText Markup Language</em
+            >) adalah batu bata dan semen penyusun kerangkanya. Tanpa HTML,
+            tidak ada website.
+          </p>
+          <h3>Struktur wajib sebuah website</h3>
+          <p>
+            Setiap halaman web harus memiliki struktur dasar ini agar bisa
+            dibaca oleh <em>browser</em> (seperti Chrome atau Safari):
+          </p>
+          <div class="code-label">
+            <span>Kerangka dokumen</span><span>HTML</span>
+          </div>
+          <pre><code>&lt;!doctype html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- Informasi untuk browser: judul tab, font, dan lainnya --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Semua yang Anda lihat di layar ada di sini --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+          <h3>Elemen penting di dalam <code>&lt;body&gt;</code></h3>
+          <ul>
+            <li>
+              <strong>Heading:</strong> Judul teks dari tingkat 1 hingga 6
+              (<code>&lt;h1&gt;</code> sampai <code>&lt;h6&gt;</code>).
+            </li>
+            <li>
+              <strong>Paragraph:</strong> Teks biasa menggunakan
+              <code>&lt;p&gt;</code>.
+            </li>
+            <li>
+              <strong>Link:</strong> Tautan untuk berpindah halaman, misalnya
+              <code>&lt;a href="url"&gt;Klik di sini&lt;/a&gt;</code>.
+            </li>
+            <li>
+              <strong>Image:</strong> Menampilkan gambar dengan
+              <code>&lt;img src="foto.jpg" alt="Deskripsi"&gt;</code>.
+            </li>
+            <li>
+              <strong>List:</strong> Daftar berurutan memakai
+              <code>&lt;ol&gt;</code> atau daftar berpoin memakai
+              <code>&lt;ul&gt;</code>, dengan item <code>&lt;li&gt;</code>.
+            </li>
+            <li>
+              <strong>Atribut khusus:</strong> <code>class</code> untuk
+              mengelompokkan elemen dan <code>id</code> sebagai identitas unik
+              elemen.
+            </li>
+          </ul>
+          <aside class="note">
+            <strong>Bayangkan seperti ini</strong>
+            <p>
+              Tag memberi tahu browser jenis kontennya; atribut memberi
+              informasi tambahan pada sebuah elemen.
+            </p>
+          </aside>
+          <div class="exercise">
+            <div class="exercise-label"><span>1</span> Latihan praktik</div>
+            <p>
+              Buatlah satu file HTML (<code>index.html</code>). Di dalamnya,
+              buat halaman profil diri Anda yang berisi foto, nama
+              (<code>&lt;h1&gt;</code>), deskripsi singkat
+              (<code>&lt;p&gt;</code>), dan daftar hobi
+              (<code>&lt;ul&gt;</code>).
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-2" aria-labelledby="title-2">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">02</span>
+            <div>
+              <h2 id="title-2">Semantic HTML</h2>
+              <p>
+                Memberi makna pada kerangka dengan tag yang menjelaskan
+                fungsinya.
+              </p>
+            </div>
+          </header>
+
+          <p>
+            Di masa lalu, orang membangun web dengan tag generik bernama
+            <code>&lt;div&gt;</code> untuk segalanya. Kini, kita menggunakan
+            <strong>Semantic HTML</strong>, yaitu tag yang namanya
+            mendeskripsikan fungsinya. Struktur yang jelas membantu browser,
+            mesin pencari, dan teknologi bantu memahami isi halaman.
+          </p>
+          <p>
+            Bayangkan rumah Anda sekarang sudah memiliki papan nama untuk setiap
+            ruangan:
+          </p>
+          <div class="concept-list">
+            <div class="concept">
+              <code>&lt;header&gt;</code>
+              <p>
+                Bagian paling atas website, biasanya berisi logo atau pengantar.
+              </p>
+            </div>
+            <div class="concept">
+              <code>&lt;nav&gt;</code>
+              <p>Menu navigasi, misalnya Beranda, Tentang, dan Kontak.</p>
+            </div>
+            <div class="concept">
+              <code>&lt;main&gt;</code>
+              <p>Konten utama halaman.</p>
+            </div>
+            <div class="concept">
+              <code>&lt;section&gt;</code>
+              <p>
+                Bagian spesifik dari konten, misalnya bagian "Layanan Kami".
+              </p>
+            </div>
+            <div class="concept">
+              <code>&lt;article&gt;</code>
+              <p>
+                Konten mandiri yang bisa berdiri sendiri, seperti postingan
+                blog.
+              </p>
+            </div>
+            <div class="concept">
+              <code>&lt;aside&gt;</code>
+              <p>Konten tambahan di samping, seperti sidebar.</p>
+            </div>
+            <div class="concept">
+              <code>&lt;footer&gt;</code>
+              <p>
+                Bagian paling bawah, biasanya berisi hak cipta atau tautan media
+                sosial.
+              </p>
+            </div>
+          </div>
+          <p>
+            Selain itu, Anda juga mulai mengenal
+            <strong>Basic Form</strong> (<code>&lt;form&gt;</code>,
+            <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>) untuk
+            membuat tempat input data seperti kolom pencarian.
+          </p>
+          <div class="exercise">
+            <div class="exercise-label"><span>2</span> Latihan praktik</div>
+            <p>
+              Modifikasi file HTML profil Anda. Masukkan logo dan menu ke dalam
+              <code>&lt;header&gt;</code>, konten profil ke
+              <code>&lt;main&gt;</code>, dan hak cipta di
+              <code>&lt;footer&gt;</code>.
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-3" aria-labelledby="title-3">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">03</span>
+            <div>
+              <h2 id="title-3">CSS Fundamental</h2>
+              <p>
+                Mengecat rumah: mengatur warna, ukuran, dan bentuk elemen HTML.
+              </p>
+            </div>
+          </header>
+
+          <p>
+            Kerangka sudah jadi, saatnya mendesain! CSS (<em
+              >Cascading Style Sheets</em
+            >) bertugas mengatur warna, ukuran, dan bentuk elemen HTML Anda.
+          </p>
+          <h3>Cara memanggil CSS</h3>
+          <p>
+            Anda bisa menulis CSS langsung di elemen (<em>inline</em>), di dalam
+            <code>&lt;head&gt;</code> (<em>internal</em>), atau di file terpisah
+            (<em>external</em>), yang sangat direkomendasikan agar gaya mudah
+            dikelola.
+          </p>
+          <h3>Selector dan aturan gaya</h3>
+          <p>
+            Untuk mengubah elemen, panggil namanya menggunakan
+            <strong>CSS selector</strong>, lalu berikan gaya melalui deklarasi
+            properti dan nilainya:
+          </p>
+          <div class="code-label">
+            <span>Contoh aturan CSS</span><span>CSS</span>
+          </div>
+          <pre><code>h1 {
+  color: blue; /* Mengubah warna teks */
+  background: yellow; /* Mengubah warna latar belakang */
+  font-family: Arial, sans-serif; /* Mengubah jenis huruf */
+  border: 1px solid black; /* Memberi garis tepi */
+  border-radius: 10px; /* Membuat sudut garis membulat */
+  width: 500px; /* Mengatur lebar */
+  height: 100px; /* Mengatur tinggi */
+}</code></pre>
+          <div class="exercise">
+            <div class="exercise-label"><span>3</span> Latihan praktik</div>
+            <p>
+              Buat file <code>style.css</code> dan hubungkan ke HTML Anda. Ubah
+              warna teks halaman profil, ganti jenis hurufnya, dan berikan warna
+              latar belakang yang menarik.
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-4" aria-labelledby="title-4">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">04</span>
+            <div>
+              <h2 id="title-4">CSS Box Model</h2>
+              <p>
+                Memahami ruang yang membentuk ukuran dan jarak setiap elemen.
+              </p>
+            </div>
+          </header>
+
+          <p>
+            Ini adalah konsep penting dalam CSS. Di dunia web,
+            <strong>semua elemen adalah kotak (<em>box</em>)</strong>. Bayangkan
+            sebuah lukisan berbingkai:
+          </p>
+          <div class="box-model" aria-label="Ilustrasi lapisan CSS Box Model">
+            <div class="box-model-border">
+              Border
+              <div class="box-model-padding">
+                Padding
+                <div class="box-model-content">Content: teks atau gambar</div>
+              </div>
+            </div>
+          </div>
+          <ol>
+            <li>
+              <strong>Content:</strong> Kanvas lukisannya, yaitu teks atau
+              gambar.
+            </li>
+            <li>
+              <strong>Padding:</strong> Jarak antara kanvas dan bingkai, ruang
+              bernapas di dalam.
+            </li>
+            <li><strong>Border:</strong> Bingkai kayunya itu sendiri.</li>
+            <li>
+              <strong>Margin:</strong> Jarak dari bingkai ke elemen lain di
+              sebelahnya, yaitu jarak luar.
+            </li>
+          </ol>
+          <h3>Properti penting Box Model</h3>
+          <div class="concept-list">
+            <div class="concept">
+              <code>box-sizing</code>
+              <p>
+                <code>border-box</code> membuat padding dan border ikut dihitung
+                dalam ukuran elemen, sehingga ukurannya lebih mudah
+                dikendalikan.
+              </p>
+            </div>
+            <div class="concept">
+              <code>max-width</code> / <code>min-width</code>
+              <p>
+                Menentukan batas maksimal atau minimal kelebaran suatu kotak.
+              </p>
+            </div>
+            <div class="concept">
+              <code>display</code>
+              <p>
+                Menentukan sifat kotak, misalnya apakah elemen berjejer ke
+                samping atau ke bawah.
+              </p>
+            </div>
+            <div class="concept">
+              <code>overflow</code>
+              <p>
+                Menentukan apa yang terjadi jika isi konten lebih besar dari
+                kotaknya, misalnya disembunyikan atau diberi scroll.
+              </p>
+            </div>
+          </div>
+          <div class="exercise">
+            <div class="exercise-label"><span>4</span> Latihan praktik</div>
+            <p>
+              Buatlah 3 "Card" (kartu profil atau produk) di HTML. Gunakan CSS
+              untuk memberi <em>padding</em>, <em>border</em>, dan
+              <em>margin</em> yang berbeda-beda agar Anda merasakan perbedaannya
+              secara visual.
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-5" aria-labelledby="title-5">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">05</span>
+            <div>
+              <h2 id="title-5">CSS Layout: Float &amp; Clear</h2>
+              <p>
+                Menyusun tata letak klasik dengan elemen yang mengalir ke kiri
+                atau kanan.
+              </p>
+            </div>
+          </header>
+
+          <p>
+            Bagaimana cara membuat teks berada di kiri dan gambar di kanan?
+            Sebelum ada teknologi modern, developer web menggunakan teknik
+            <strong>Float</strong>.
+          </p>
+          <p>
+            <em>Float</em> bekerja dengan menarik sebuah elemen keluar dari
+            aliran normal dan memaksanya merapat ke kiri (<code
+              >float: left</code
+            >) atau ke kanan (<code>float: right</code>). Elemen teks di
+            bawahnya akan mengalir mengelilingi elemen tersebut, seperti teks
+            mengelilingi gambar di koran.
+          </p>
+          <h3>Masalah Float dan solusinya</h3>
+          <p>
+            Jika sebuah kotak induk berisi anak-anak yang di-float, kotak induk
+            tersebut bisa "kempis" karena tidak menghitung anak-anak itu sebagai
+            bagian dari aliran normal. Akibatnya, tinggi parent tidak mencakup
+            elemen yang di-float.
+          </p>
+          <div class="note">
+            <strong>Solusi</strong>
+            <p>
+              Gunakan perintah <code>clear: both</code> pada elemen setelahnya,
+              atau gunakan teknik <em>clearfix</em> untuk mengembalikan aliran
+              halaman menjadi normal kembali.
+            </p>
+          </div>
+          <h3>Contoh susunan layout klasik</h3>
+          <p>
+            Header berada di atas, Sidebar dan Content berdampingan, lalu Footer
+            menutup halaman.
+          </p>
+          <div
+            class="diagram-wrap"
+            role="img"
+            aria-label="Diagram layout: Header di atas, Sidebar di kiri dan Content di kanan, Footer di bawah"
+          >
+            <div class="layout-diagram">
+              <div class="wide">Header</div>
+              <div>Sidebar</div>
+              <div>Content</div>
+              <div class="wide">Footer</div>
+            </div>
+          </div>
+          <div class="exercise">
+            <div class="exercise-label"><span>5</span> Latihan praktik</div>
+            <p>
+              Buatlah struktur layout klasik menggunakan Float seperti diagram
+              di atas.
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-6" aria-labelledby="title-6">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">06</span>
+            <div>
+              <h2 id="title-6">Responsive Design &amp; Basic UI</h2>
+              <p>Membuat tampilan nyaman dibuka dari ponsel hingga komputer.</p>
+            </div>
+          </header>
+
+          <p>
+            Website Anda mungkin terlihat bagus di laptop, tapi bagaimana jika
+            dibuka di HP? Di sinilah <strong>Responsive Design</strong> masuk.
+          </p>
+          <h3>Senjata utama: Media Queries</h3>
+          <p>
+            Media query memungkinkan kita mengubah desain berdasarkan lebar
+            layar atau <em>breakpoints</em>. Contoh berikut menggunakan desain
+            <em>mobile-first</em>, lalu mengubah sidebar pada layar yang lebih
+            lebar dari 768px:
+          </p>
+          <div class="code-label">
+            <span>Layout responsif</span><span>CSS</span>
+          </div>
+          <pre><code>/* Desain default (mobile-first) */
+.sidebar {
+  width: 100%;
+  float: none;
+}
+
+/* Jika layar lebih lebar dari 768px (tablet/desktop) */
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 30%;
+    float: left;
+  }
+}</code></pre>
+          <div class="note">
+            <strong>Gunakan ukuran yang fleksibel</strong>
+            <p>
+              Gunakan <em>relative units</em> seperti
+              <code>%</code> (persentase) alih-alih <code>px</code> agar gambar
+              dan kotak bisa meregang secara fleksibel.
+            </p>
+          </div>
+          <h3>Basic UI (Antarmuka Pengguna)</h3>
+          <p>
+            Desain yang baik harus nyaman dilihat. Perhatikan hal-hal berikut:
+          </p>
+          <ul>
+            <li>
+              <strong>Visual Hierarchy:</strong> Teks terpenting harus paling
+              besar atau tebal.
+            </li>
+            <li>
+              <strong>Spacing:</strong> Beri jarak
+              (<code>margin</code>/<code>padding</code>) yang cukup antar
+              elemen. Jangan berdesakan.
+            </li>
+            <li>
+              <strong>Interaksi:</strong> Tambahkan efek
+              <code>hover</code> (berubah saat disentuh mouse) atau
+              <code>focus</code> pada <em>button</em> agar website terasa lebih
+              hidup.
+            </li>
+          </ul>
+          <div class="exercise">
+            <div class="exercise-label"><span>6</span> Latihan praktik</div>
+            <p>
+              Ubah layout dari Pembelajaran 5 menjadi responsif. Di layar HP,
+              Sidebar berada di bawah Content. Di layar Laptop, Sidebar kembali
+              berada di kiri Content.
+            </p>
+          </div>
+        </section>
+
+        <section class="chapter" id="pembelajaran-7" aria-labelledby="title-7">
+          <header class="chapter-heading">
+            <span class="chapter-number" aria-hidden="true">07</span>
+            <div>
+              <h2 id="title-7">Practice &amp; Portfolio</h2>
+              <p>Gabungkan semua fondasi menjadi proyek website nyata.</p>
+            </div>
+          </header>
+
+          <p>
+            Teori tanpa praktik akan cepat hilang. Sekarang Anda sudah memiliki
+            semua senjata yang dibutuhkan untuk membuat website statis.
+          </p>
+          <h3>Alur kerja yang sistematis</h3>
+          <p>Biasakan alur kerja berikut saat mengerjakan proyek:</p>
+          <div class="workflow" aria-label="Alur belajar dan membuat website">
+            <span>HTML</span><b aria-hidden="true">&rarr;</b>
+            <span>Semantic HTML</span><b aria-hidden="true">&rarr;</b>
+            <span>CSS Dasar</span><b aria-hidden="true">&rarr;</b>
+            <span>Box Model</span><b aria-hidden="true">&rarr;</b>
+            <span>Layout (Float/Clear)</span><b aria-hidden="true">&rarr;</b>
+            <span>Responsive</span><b aria-hidden="true">&rarr;</b>
+            <span>UI (Warna/Tipografi)</span>
+          </div>
+          <h3>Misi terakhir Anda</h3>
+          <p>
+            Buat beberapa proyek nyata dari nol tanpa melihat tutorial.
+            Menyontek catatan atau melakukan pencarian di Google diperbolehkan.
+          </p>
+          <ol class="project-list">
+            <li>
+              <div>
+                <strong>Personal Profile</strong><span>CV online Anda.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Portfolio</strong
+                ><span>Galeri karya atau foto Anda.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Blog Layout</strong
+                ><span>Halaman daftar artikel dan halaman baca artikel.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Product Page</strong
+                ><span
+                  >Halaman untuk berjualan satu barang, lengkap dengan gambar
+                  dan tombol beli.</span
+                >
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Company Profile</strong
+                ><span
+                  >Halaman profil bisnis dengan beberapa halaman: Home, About,
+                  dan Contact.</span
+                >
+              </div>
+            </li>
+          </ol>
+          <div class="finish-banner">
+            <strong>Target akhir</strong>
+            <p>
+              Jika Anda berhasil menyelesaikan proyek-proyek di atas, selamat!
+              Anda kini sudah mampu membuat website statis sederhana dari nol.
+              Fondasi Anda sudah cukup kuat untuk melangkah ke materi web
+              tingkat lanjut seperti tata letak CSS modern (Flexbox &amp; Grid)
+              atau membuat web menjadi interaktif dengan JavaScript. Teruslah
+              berkarya!
+            </p>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="doc-footer">
+      Panduan belajar HTML &amp; CSS untuk pemula.
+      <a href="index.html">Kembali ke daftar pembelajaran</a>
+    </footer>
+  </body>
+</html>
