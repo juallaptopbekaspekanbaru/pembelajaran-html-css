@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: lightblue;
+}
+
+/* Header */
+
+header {
+  background: white;
+  padding: 20px;
+}
+
+/* Sidebar */
+
+aside {
+  float: left;
+  width: 30%;
+  height: 100vh;
+  background: white;
+  padding: 20px;
+}
+
+/* Content */
+
+section {
+  float: left;
+  width: 70%;
+  height: 100vh;
+  background: white;
+  padding: 20px;
+}
+
+/* Footer */
+
+footer {
+  background: rgb(141, 141, 141);
+  padding: 20px;
+}

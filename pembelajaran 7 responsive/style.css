@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: lightblue;
+  margin: 0;
+}
+
+/* Header */
+
+header {
+  background: lightyellow;
+  padding: 20px;
+}
+
+/* Content */
+
+.content {
+  width: 100%;
+  background: lightskyblue;
+  padding: 20px;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 100%;
+  padding: 20px;
+  background: lightgreen;
+}
+
+/* Footer */
+
+footer {
+  clear: both;
+  padding: 20px;
+  background: rgb(141, 141, 141);
+}
+
+/* Laptop / Desktop */
+
+@media (min-width: 768px) {
+  .content {
+    width: 70%;
+    float: right;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 30%;
+    float: left;
+    height: 100vh;
+  }
+}
