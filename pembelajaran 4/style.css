@@ -1,0 +1,21 @@
+body {
+  background: lightblue;
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: darkblue;
+}
+
+p {
+  color: #444444;
+}
+
+a {
+  color: green;
+}

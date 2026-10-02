@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Form Pendaftaran</h1>
+    <form method="post">
+      <fieldset>
+        <legend>Form Pendaftaran</legend>
+        <label for="nama">Nama Lengkap :</label>
+        <input
+          type="text"
+          name="nama"
+          id="nama"
+          placeholder="Isikan nama lengkap anda"
+          required
+        />
+        <br /><br />
+        <label for="email">Email Aktif :</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Masukkan Email kamu"
+          required
+        />
+        <br /><br />
+        <label>Jenis Kelamin :</label>
+        <input type="radio" id="pria" name="gender" value="pria" />
+        <label for="pria">Pria</label>
+        <input type="radio" id="wanita" name="gender" value="wanita" />
+        <label for="wanita">Wanita</label>
+        <br /><br />
+        <label for="kota">Kota Asal :</label>
+        <select name="kota" id="kota">
+          <option value="jakarta">Jakarta</option>
+          <option value="surabaya">Surabaya</option>
+          <option value="pekanbaru">Pekanbaru</option>
+        </select>
+        <br /><br />
+        <label for="pesan">Tinggalkan Pesan :</label><br /><br />
+        <textarea name="pesan" id="pesan" rows="4" cols="30"></textarea>
+        <br /><br />
+        <button type="submit">Kirim Data</button>
+      </fieldset>
+    </form>
+    <div class="data"></div>
+    <script>
+      const form = document.querySelector("form");
+      const dataDiv = document.querySelector(".data");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const nama = document.getElementById("nama").value;
+        const email = document.getElementById("email").value;
+        const gender = document.querySelector('input[name="gender"]:checked')
+          ? document.querySelector('input[name="gender"]:checked').value
+          : "";
+        const kota = document.getElementById("kota").value;
+        const pesan = document.getElementById("pesan").value;
+
+        dataDiv.innerHTML = `
+            <h2>Data yang Dikirim:</h2>
+            <p><strong>Nama:</strong> ${nama}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+            <p><strong>Kota Asal:</strong> ${kota}</p>
+            <p><strong>Pesan:</strong> ${pesan}</p>
+            `;
+      });
+    </script>
+  </body>
+</html>

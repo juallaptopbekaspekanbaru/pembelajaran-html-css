@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: lightblue;
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: blue;
+}
+
+h2 {
+  color: darkblue;
+}
+
+/* Card */
+
+.card {
+  display: inline-block;
+  width: 250px;
+  border: 2px solid black;
+}
+
+/* Card pertama */
+
+.card-satu {
+  padding: 10px;
+  margin: 10px;
+  background-color: lightgray;
+}
+
+/* Card kedua */
+
+.card-dua {
+  padding: 20px;
+  margin: 20px;
+  background-color: lightgreen;
+}
+
+/* Card ketiga */
+
+.card-tiga {
+  padding: 30px;
+  margin: 30px;
+  background-color: lightyellow;
+}
